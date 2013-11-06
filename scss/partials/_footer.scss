@@ -1,0 +1,146 @@
+//
+// footer
+//
+section.footer-social {
+    background: #000;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    .social-nav {
+        & > span {
+            $h: 35px;
+            @include single-transition(background-color);
+            background-color: $color-blue;
+            border-radius: 50%;
+            color: $color-white;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            height: $h;
+            line-height: $h;
+            text-align: center;
+            width: $h;
+
+            &.active,
+            &:hover {
+                @include single-transition(background-color);
+                background-color: darken($color-blue, 20%);
+                color: $color-white;
+            }
+        }
+    }
+
+    .social-actions {
+        .widget {
+            display: none;
+
+            @include small {
+                min-height: 76px;
+            }
+
+            &:first-child {
+                display: block;
+            }
+        }
+
+        @include small {
+            margin-top: 10px;
+        }
+
+        .social-facebook {
+            padding-top: 3px;
+
+            @include small {
+                padding-top: 20px;
+                text-align: center;
+            }
+        }
+
+        .social-twitter {
+            padding-top: 3px;
+
+            @include small {
+                padding-top: 20px;
+                text-align: center;
+            }
+        }
+
+        .social-email {
+            padding-top: 1px;
+
+            input {
+                $radius: 4px;
+                @include border-radius(0px);
+
+                &.button {
+                    border: 1px solid $color-blue;
+                    @include box-shadow(none);
+                    height: 32px;
+                    margin-bottom: 0;
+                    width: 100%;
+                }
+
+                @include medium {
+                    &.email, &[type=email] {
+                        @include border-left-radius($radius);
+                        border-right-width: 0px;
+                    }
+                    &.button {
+                        @include border-right-radius($radius);
+                    }
+                }
+            }
+        }
+    }
+
+    .ajaxForm {
+        margin-bottom: 0;
+    }
+}
+
+
+section.footer {
+    background-image: image-url("content-bg.jpg");
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    ul {
+        margin: 0 0 2em 0;
+        padding: 0;
+    }
+
+    li {
+        font-size: 14px;
+        line-height: 2em;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        strong, strong a {
+            color: $color-blue-dark;
+        }
+    }
+
+    .logo {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    li.icon:before {
+        color: $color-blue;
+        display: block;
+        float: left;
+        text-align: left;
+        width: 20px;
+    }
+
+    .copyright {
+        color: $color-blue;
+        font-size: 11px;
+        font-weight: bold;
+
+        a {
+            color: $color-blue;
+        }
+    }
+}

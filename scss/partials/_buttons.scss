@@ -1,0 +1,84 @@
+.button {
+    // modifications to the default compass buttons
+    @include border-radius(4px);
+
+    &.blue-dark {
+        background-color: $color-blue-dark;
+        border-color: $color-blue-dark;
+
+        &:hover {
+            background-color: darken( $color-blue-dark, 10% );
+            border-color: darken( $color-blue-dark, 10% );
+
+        }
+    }
+
+    &.red {
+        background-color: $color-red;
+        border-color: $color-red;
+        &:hover {
+            background-color: darken( $color-red, 5% );
+            background-color: darken($color-red, 5%);
+        }
+    }
+}
+
+input[type=button],
+input[type=submit],
+.btn_fwd,
+.btn-blue-dark,
+.btn_fwd:visited,
+.btn-blue-dark:visited {
+    background-color: $color-blue;
+    border: 0;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .8em;
+    font-weight: bold;
+    padding: .5em 2em;
+    text-transform: capitalize;
+    -webkit-appearance: none;
+
+    &:hover {
+        background-color: darken( $color-blue, 20% );
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    &[class^="icon-"]:before,
+    &[class*=" icon-"]:before {
+        margin-right: 10px;
+    }
+
+    &.blue-dark {
+        background: $color-blue-dark;
+
+        &:hover {
+            background-color: darken( $color-blue-dark, 10% );
+        }
+    }
+
+    &.facebook {
+        background-color: $color-facebook;
+    }
+
+    &.twitter {
+        background-color: $color-twitter;
+    }
+
+    &.big {
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.btn-blue-dark {
+    background: $color-blue-dark !important;
+    &:hover {
+        background-color: darken( $color-blue-dark, 10% ) !important;
+    }
+}

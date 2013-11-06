@@ -1,0 +1,42 @@
+$color-blue: #369ff4;
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password],
+textarea {
+    @include border-radius(4px);
+    @include box-shadow( 1px 1px 5px rgba(0,0,0,.1) );
+    @include box-sizing(border-box);
+    border: 1px solid #CCCCCC;
+    border-color: #CCCCCC !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 14px;
+    padding: 7px !important;
+    height: 32px;
+    margin-bottom: 2px;
+}
+
+textarea {
+    height: 100px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.fluid-form {
+    input[type=text],
+    input[type=email],
+    input[type=tel],
+    input[type=password]
+    textarea {
+        width: 100% !important;
+    }
+}
+
+#survey_question {
+    color: $color-blue;
+}

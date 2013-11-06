@@ -1,0 +1,138 @@
+$header-height: 77px;
+
+section.header {
+    min-height: $header-height;
+}
+
+header {
+    background: #ffffff;
+    border-bottom: 2px solid #ccd3d9;
+    min-height: $header-height;
+    width: 100%;
+
+
+    @include medium {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .logo {
+        float: left;
+
+        @include small {
+            display: table;
+            float: none;
+            margin: 15px auto 10px auto;
+        }
+
+        img {
+            @include small {
+                height: auto;
+                width: 100px;
+            }
+        }
+    }
+
+    .menu-left {
+        min-height: 37px;
+        margin: 20px 0;
+
+        ul {
+            display: inline-block;
+            float: left;
+            line-height: 1em;
+            margin-left: 40px;
+            margin-top: 21px; // vertical align to baseline of logo
+            @include breakpoint-max (1030px) {
+                margin-left: 10px;
+            }
+            @include small {
+                float: none;
+                display: block;
+                margin-left: 0;
+                margin-top: 0;
+                text-align: center;
+            }
+        }
+
+        li {
+            display: inline;
+            font-size: 18px;
+            list-style-type: none;
+            margin-left: 40px;
+
+            @include breakpoint-max (1030px) {
+                font-size: 14px;
+                margin-left: 6px;
+                margin-right: 6px;
+                margin-top: 23px;
+            }
+
+            @include small {
+                line-height: 1.6em;
+            }
+        }
+
+        a {
+            @include single-transition(color);
+            color: $color-blue-dark;
+            white-space: nowrap;
+
+            &:hover {
+                @include single-transition(color);
+                color: $color-blue;
+                text-decoration: none;
+            }
+
+            &.active {
+                color: $color-blue;
+            }
+        }
+    }
+
+    .menu-right {
+        margin-top: 22px;
+
+        a {
+            $h: 35px;
+            @include single-transition(background-color);
+            background-color: $color-blue;
+            border-radius: 50%;
+            color: $color-white;
+            display: inline-block;
+            font-size: 16px;
+            height: $h;
+            line-height: $h;
+            text-align: center;
+            width: $h;
+
+            &.active,
+            &:hover {
+                @include single-transition(background-color);
+                background-color: darken($color-blue, 20%);
+                color: $color-white;
+            }
+        }
+    }
+
+    .no-nav & {
+        .menu-left ul,
+        .menu-right {
+            display: none !important;
+        }
+
+        .menu-left {
+            text-align: center;
+        }
+
+        .logo {
+            height: auto;
+            float: none;
+            width: 100px;
+
+            @include small {
+                width: auto;
+            }
+        }
+    }
+}

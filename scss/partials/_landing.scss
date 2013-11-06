@@ -1,0 +1,310 @@
+//$sans-display: "Museo Sans", "museo-sans";
+
+// todo: switch this to the foundation button mixin
+// make a button with a lot of help
+@mixin btn($bottom: gray, $top: white, $border: black, $highlight: blue, $lowlight: gray, $text: white) {
+    border: 1px solid $border;
+    color: $text;
+    border-radius: 5px;
+    // box-shadow: inset    0 1px 0px $highlight, 0 2px 0px $lowlight;
+    box-shadow: inset 0 1px 2px $highlight, 0 2px 5px $default-box-shadow-color;
+    text-shadow: 0px -1px 0px rgba(100, 100, 100, .5);
+    background: $bottom;
+
+    @include background-image(linear-gradient($top, $bottom));
+
+    &:hover {
+        background: $top;
+    }
+}
+
+// make a button from a single color
+@mixin buttonStyle($base-color) {
+    $gray-border-color: #ababab;
+    $light-gray-text-color: #666;
+    $text-color: white;
+    $gray: if(saturation($base-color) < 10, true, false);
+    $gray-text-color: if(lightness($base-color) > 68, $light-gray-text-color, $text-color);
+    $text: if($gray, $gray-text-color, $text-color);
+    $bottom-color: desaturate(darken(adjust_hue($base-color, -7), 3%), 1%);
+    $border-color: desaturate(darken(adjust_hue($base-color, -13), 3%), 1%);
+    $border-color: if($gray, $gray-border-color, $border-color);
+    $highlight-color: lighten(desaturate($base-color, 5%), 15%);
+    $lowlight-color: hsl(hue($base-color) - 20, 38%, 90%);
+
+    @include btn($bottom-color, $base-color, $border-color, $highlight-color, $lowlight-color, $text);
+}
+
+
+.landing-full-photo {
+    background: url('background_landing_emma.jpg');
+    background-size: cover;
+
+    @include box-shadow(#bcbcbc 3px 3px 0px 0px);
+    @include clearfix();
+
+    * {
+        @include box-sizing(border-box);
+    }
+
+    min-height: $wrapper-min-height;
+
+    #content {
+        // fallback color
+        background-color: $color-blue;
+        background-color: rgba($color-blue, .7);
+        border-top: 5px solid $color-blue;
+        //@include background-image(linear-gradient(top, rgba($color-blue,0.5) 0%,rgba($color-blue,0.40) 100%));
+        // @include filter-gradient(#666, #000, vertical); // IE6-9
+        // @include background-image(linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%));
+        color: $color-white;
+        float: right;
+        margin: 50px 60px 100px 0;
+        padding: 40px 40px 40px 40px;
+        width: 520px;
+
+        @include tablet-portrait-and-below {
+            margin: 2%;
+            width: 96%;
+            background-color: rgba($color-blue, .7);
+            // @include background-image(linear-gradient(top, rgba($color-blue,0.75) 0%,rgba($color-blue,0.65) 100%));
+        }
+
+        @include mobile-landscape-and-below {
+            padding: 20px;
+        }
+
+        h2, h3 {
+            color: $color-white;
+            font-family: $sans-display;
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: .5em;
+
+            @include mobile-landscape-and-below {
+                font-size: 28px !important; // todo: get rid of the importants
+            }
+        }
+
+        h3 {
+            font-size: 20px !important;
+
+            @include mobile-landscape-and-below {
+                font-size: 18px !important; // todo: get rid of the importants
+            }
+        }
+
+        strong {
+            font-weight: normal; // No bold font available, browser trying to force it looks bad
+        }
+
+        p {
+            margin-top: 0 !important;
+            color: $color-white !important;
+            font-family: $sans-display !important;
+
+            @include tablet-portrait-and-below {
+                color: $color-white !important;
+            }
+        }
+
+        .disclaimer {
+            font-size: .9em;
+            font-style: italic;
+            line-height: 1.3em;
+            margin-top: 60px !important;
+
+            p {
+                font-size: .9em !important;
+                line-height: 1.3em !important;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .form_wrap {
+        // background-color: rgba(#444, .5);
+        //background-color: rgba($color-blue, 0.40);
+        background-color: transparent;
+        float: right;
+        width: 100%;
+
+        //margin-bottom: 100px;
+        //padding: 40px;
+        //width: 520px;
+
+        @include tablet-portrait-and-below {
+            margin: 2%;
+            width: 96%;
+        }
+
+        td {
+            padding-bottom: 20px;
+            vertical-align: top;
+        }
+
+        h4 {
+            color: $color-blue-dark !important;
+            font: 28px normal $sans-display !important;
+            margin-bottom: .8em !important;
+
+            @include tablet-portrait-and-below {
+                color: $color-white !important;
+            }
+        }
+
+        label {
+            color: $color-white !important;
+            font: 18px bold $sans-display !important;
+
+            &.opt-in {
+                font-size: .9em !important;
+            }
+
+
+            @include tablet-portrait-and-below {
+                color: $color-white !important;
+            }
+        }
+
+        .form p {
+            margin: 20px 0 !important;
+        }
+
+        // copied from responsive.scss
+        // todo: make these styles apply globally, it shouldn't be on blue-dark though
+        /*input[type=button],
+        input[type=submit],
+        .btn_fwd {
+            @include buttonStyle($color-blue);
+            // border-radius: 4px;\
+            color: #fff !important;
+            cursor: pointer;
+            display: block;
+            font: 18px normal $sans-display;
+            height: auto;
+            margin: 10px auto;
+            min-width: 100px;
+            padding: 10px 40px;
+            text-align: center;
+            // border: 0;
+
+            &:hover {
+                // background-position: 0 -50px;
+            }
+        }
+
+        input[type=submit].btn-blue-dark,
+        .btn_fwd.btn-blue-dark {
+            @include buttonStyle($color-blue-dark);
+            // border-radius: 4px;\
+            color: #fff !important;
+            cursor: pointer;
+            display: block;
+            font: 18px normal $sans-display;
+            height: auto;
+            margin: 10px auto;
+            min-width: 100px;
+            padding: 10px 40px;
+            text-align: center;
+
+            &:hover {
+                background-color: lighten(desaturate($color-blue-dark, 5%), 5%);
+            }
+            // border: 0;
+        }
+
+        input[type=submit].btn-red,
+        .btn_fwd.btn-red {
+            @include buttonStyle(#c0392b);
+            // border-radius: 4px;\
+            color: #fff !important;
+            cursor: pointer;
+            display: block;
+            font: 18px normal $sans-display;
+            height: auto;
+            margin: 10px auto;
+            min-width: 100px;
+            padding: 10px 40px;
+            text-align: center;
+            // border: 0;
+        }
+
+        .text {
+            width: 100% !important;
+        }*/
+
+        // td.single-field input {
+        //     width: 100% !important;
+        // }
+
+        .inline-text {
+            display: inline-block;
+            max-width: 200px;
+        }
+    }
+
+    .signup-image {
+        display: none;
+    }
+
+    .columns { // NON RETROACTIVE STYLES. All pages with landing-full-photo must be responsiveized before making this global
+        .flat-right {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        input[type=submit] {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            font-size: .9em;
+            position: relative;
+            top: -2px;
+            width: 100%;
+        }
+    }
+}
+
+.facebook-comment { // This can disappear once we go global with new button style
+    .btn_fwd {
+        @include buttonStyle($color-blue);
+        // border-radius: 4px;\
+        color: #fff !important;
+        cursor: pointer;
+        display: block;
+        font: 18px normal $sans-display;
+        height: auto;
+        margin: 10px auto;
+        min-width: 100px;
+        padding: 10px 40px;
+        text-align: center;
+        // border: 0;
+
+        &:hover {
+            // background-position: 0 -50px;
+        }
+    }
+
+    input[type=submit].btn-blue-dark,
+    .btn_fwd.btn-blue-dark {
+        @include buttonStyle($color-blue-dark);
+        // border-radius: 4px;\
+        color: #fff !important;
+        cursor: pointer;
+        display: block;
+        font: 18px normal $sans-display;
+        height: auto;
+        margin: 10px auto;
+        min-width: 100px;
+        padding: 10px 40px;
+        text-align: center;
+
+        &:hover {
+            background-color: lighten(desaturate($color-blue-dark, 5%), 5%);
+        }
+    }
+}

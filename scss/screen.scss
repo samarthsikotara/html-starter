@@ -1,0 +1,230 @@
+//
+// Fwd.us Styles
+//
+
+// Modules
+@import "compass";
+@import "_modules/breakpoints";
+@import "_modules/liquid_variables";
+
+$theme_color_1: #0089d2;
+$theme_color_2: #585858;
+$theme_color_3: #c4c4c4;
+$theme_color_4: #f2f2f2;
+$theme_color_5: #0e3060;
+$theme_color_6: #f2f2f2;
+$theme_callout: true;
+$supporter_nav_on: darken($theme_color_4, 10);
+$supporter_nav_hover: darken($theme_color_4, 10);
+
+$fonts: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$sans-display: $fonts;
+$font-sans: $fonts;
+$form_field_font: $fonts;
+$headline_font: $fonts;
+
+$headline_weight: bold;
+
+
+
+$color-black: #000;
+$color-blue: #369ff4;
+$color-blue-dark: #0e3060;
+$color-red: #c0392b;
+$color-white: #ffffff;
+$color-gray: #999999;
+
+$color-facebook: #3b5998;
+$color-linkedin: #007bb6;
+$color-googleplus: #dd4b39;
+$color-twitter: #00aced;
+$color-youtube: #bb0000;
+
+$content-w: 1020px;
+$wrapper-min-height: 900px;
+$footerHeight: 318px;
+
+$default-transition-duration : .5s;
+
+@import "foundation";
+
+a {
+    &.button {
+        &:hover { text-decoration: none; }
+    }
+}
+
+.w940 {
+    @extend .row;
+    @extend .large-9;
+    @extend .large-centered;
+
+    @include small {
+        padding: 10px;
+    }
+}
+
+.article {
+   @extend .row;
+   @extend .large-6;
+   @extend .large-centered;
+}
+
+.aricleWrapper .article {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+#content {
+   @extend .row;
+   @extend .large-9;
+   @extend .large-centered;
+
+    @include medium {
+        padding: 10px;
+    }
+
+   &.signup-content {
+        margin: 0;
+   }
+}
+
+a {
+    color: $theme_color_1;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: $theme_color_1;
+    }
+}
+
+.topShadow {
+    background: url("bottom-drop-shadow.png") repeat-x top;
+}
+
+.grayBg {
+    background: image-url("content-bg.jpg");
+
+    @include tablet-portrait-and-below {
+        background: none;
+    }
+}
+
+.lighttexture {
+    background: url("light-texture.jpg");
+
+    @include small {
+        background: none;
+    }
+}
+
+#content img {
+    height: auto;
+    max-width: 100%;
+}
+
+#intro {
+    @include small {
+        padding: 0 10px;
+    }
+
+    p > img {
+        @include small {
+            float: none !important;
+            display: table;
+            margin: 0 auto !important;
+        }
+    }
+}
+
+#widget {
+    display: none;
+}
+
+.form_wrap {
+    @include tablet-portrait-and-below {
+        background-color: #FFFFFF;
+        padding: 10px;
+        width: auto;
+    }
+
+    @include clearfix;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password],
+textarea {
+    border: 1px solid #CCCCCC;
+    border-color: #CCCCCC !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 14px;
+    padding: 7px !important;
+    width: 100%;
+
+    @include border-radius(4px);
+    @include box-shadow( 1px 1px 5px rgba(0,0,0,.1) );
+}
+
+label {
+    font-weight: bold;
+}
+
+.stepZero, .stepOne, .stepTwo,
+.stepThree, .stepFour, .hidden {
+    // Used in several places
+    display: none;
+}
+
+.get-tweet, .call-widget {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    padding: 15px;
+
+    .meta {
+        color: #585858;
+        margin-bottom: 5px;
+
+        @include clearfix;
+
+        .avatar {
+            margin-right: 10px;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .handle {
+            color: #c4c4c4;
+            font-style: italic;
+        }
+
+        .top {
+            line-height: 25px;
+        }
+    }
+
+    .counter {
+        display: block;
+        font-size: 12px;
+        text-align: right;
+    }
+}
+
+@import "icons";
+@import "partials/landing";
+@import "partials/utilities";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/buttons";
+@import "partials/sharebuttons";
+@import "partials/forms";
