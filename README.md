@@ -1,4 +1,4 @@
-## Fwd.us HTML Starter Kit
+## FWD.us HTML Starter Kit
 
 This repo contains all the resources you need to get started making projects with FWD.us branding.
 
