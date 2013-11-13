@@ -2982,12 +2982,12 @@ a:visited {
 
 /* line 105, ../../scss/screen.scss */
 .topShadow {
-  background: url('/assets/images/bottom-drop-shadow.png') repeat-x top;
+  background: url('assets/images/bottom-drop-shadow.png') repeat-x top;
 }
 
 /* line 109, ../../scss/screen.scss */
 .grayBg {
-  background: url('/assets/images/content-bg.jpg?1374590628');
+  background: url('assets/images/content-bg.jpg?1374590628');
 }
 @media only screen and (max-width: 768px) {
   /* line 109, ../../scss/screen.scss */
@@ -2998,7 +2998,7 @@ a:visited {
 
 /* line 117, ../../scss/screen.scss */
 .lighttexture {
-  background: url('/assets/images/light-texture.jpg');
+  background: url('assets/images/light-texture.jpg');
 }
 @media (max-width: 768px) {
   /* line 117, ../../scss/screen.scss */
@@ -3881,7 +3881,7 @@ section.footer-social .ajaxForm {
 
 /* line 102, ../../scss/partials/_footer.scss */
 section.footer {
-  background-image: url('/assets/images/content-bg.jpg?1374590628');
+  background-image: url('assets/images/content-bg.jpg?1374590628');
   padding-top: 30px;
   padding-bottom: 30px;
 }
